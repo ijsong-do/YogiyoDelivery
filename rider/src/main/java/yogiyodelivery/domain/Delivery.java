@@ -66,7 +66,7 @@ public class Delivery  {
 
 
 
-    public static void 주문정보복제(OrderPlaced orderPlaced){
+    public static void orderInfoCopy(OrderPlaced orderPlaced){
 
         /** Example 1:  new item 
         Delivery delivery = new Delivery();

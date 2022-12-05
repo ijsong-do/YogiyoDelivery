@@ -23,16 +23,16 @@ public class PolicyHandler{
     public void whatever(@Payload String eventString){}
 
     @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='OrderPlaced'")
-    public void wheneverOrderPlaced_주문정보복제(@Payload OrderPlaced orderPlaced){
+    public void wheneverOrderPlaced_OrderInfoCopy(@Payload OrderPlaced orderPlaced){
 
         OrderPlaced event = orderPlaced;
-        System.out.println("\n\n##### listener 주문정보복제 : " + orderPlaced + "\n\n");
+        System.out.println("\n\n##### listener OrderInfoCopy : " + orderPlaced + "\n\n");
 
 
         
 
         // Sample Logic //
-        Delivery.주문정보복제(event);
+        Delivery.orderInfoCopy(event);
         
 
         
