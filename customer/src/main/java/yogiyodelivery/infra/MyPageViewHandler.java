@@ -177,46 +177,6 @@ public class MyPageViewHandler {
             e.printStackTrace();
         }
     }
-    @StreamListener(KafkaProcessor.INPUT)
-    public void whenPicked_then_UPDATE_8(@Payload Picked picked) {
-        try {
-            if (!picked.validate()) return;
-                // view 객체 조회
-            Optional<MyPage> myPageOptional = myPageRepository.findById(Long.valueOf(picked.getOrderId()));
-
-            if( myPageOptional.isPresent()) {
-                 MyPage myPage = myPageOptional.get();
-            // view 객체에 이벤트의 eventDirectValue 를 set 함
-                myPage.setStatus("배송중");    
-                // view 레파지 토리에 save
-                 myPageRepository.save(myPage);
-                }
-
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    @StreamListener(KafkaProcessor.INPUT)
-    public void whenDelivered_then_UPDATE_9(@Payload Delivered delivered) {
-        try {
-            if (!delivered.validate()) return;
-                // view 객체 조회
-            Optional<MyPage> myPageOptional = myPageRepository.findById(Long.valueOf(delivered.getOrderId()));
-
-            if( myPageOptional.isPresent()) {
-                 MyPage myPage = myPageOptional.get();
-            // view 객체에 이벤트의 eventDirectValue 를 set 함
-                myPage.setStatus("배송완료");    
-                // view 레파지 토리에 save
-                 myPageRepository.save(myPage);
-                }
-
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
 
 }
