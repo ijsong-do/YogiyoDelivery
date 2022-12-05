@@ -1,11 +1,11 @@
 package yogiyodelivery.domain;
 
-import yogiyodelivery.domain.*;
 import yogiyodelivery.infra.AbstractEvent;
-import lombok.*;
+import lombok.Data;
 import java.util.*;
+
+
 @Data
-@ToString
 public class CookFinished extends AbstractEvent {
 
     private Long id;
@@ -13,8 +13,6 @@ public class CookFinished extends AbstractEvent {
     private String foodId;
     private String orderId;
     private String address;
-    private Object options;
+    private List<String> options;
     private String storeId;
 }
-
-
